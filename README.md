@@ -1,6 +1,6 @@
-# ACL4SSR Rules
+# Clash Rule
 
-Initialization Files are maintained by [@yfluo914](https://github.com/yfluo914).
+Initialization files and rules are maintained by [@yfluo914](https://github.com/yfluo914).
 
 Common use: Config/Auto.ini & Config/Select.ini
 
