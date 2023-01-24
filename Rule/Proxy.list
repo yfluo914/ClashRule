@@ -1,9 +1,7 @@
-# 知乎
-DOMAIN-SUFFIX,zhihu.com
-IP-CIDR,103.41.167.0/24
-
-# 微博
-DOMAIN-SUFFIX,weibo.cn
-DOMAIN-SUFFIX,weibo.com
-DOMAIN-SUFFIX,weibocdn.com
-DOMAIN-KEYWORD,weibo
+# GitHub
+DOMAIN-KEYWORD,github
+DOMAIN-SUFFIX,github.com
+DOMAIN-SUFFIX,github.io
+DOMAIN-SUFFIX,githubapp.com
+DOMAIN-SUFFIX,githubassets.com
+DOMAIN-SUFFIX,githubusercontent.com
