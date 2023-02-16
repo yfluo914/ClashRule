@@ -1,6 +1,6 @@
 # Clash Rule
 
-Initialization files and rules are maintained by [@yfluo914](https://github.com/yfluo914).
+Initialization files and special rules are maintained by [@yfluo914](https://github.com/yfluo914).
 
 Common use: Config/Auto.ini & Config/Select.ini
 
