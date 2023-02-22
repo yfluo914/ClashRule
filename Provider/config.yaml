@@ -142,11 +142,6 @@ proxy-groups:
     proxies:
       - DIRECT
       - Proxies
-  - name: Game
-    type: select
-    proxies:
-      - DIRECT
-      - Proxies
   - name: BanAD
     type: select
     proxies:
@@ -247,18 +242,6 @@ rule-providers:
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Apple.yaml"
     path: ./ruleset/Apple.yaml
     interval: 86400
-  Steam:
-    type: http
-    behavior: classical
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Steam.yaml"
-    path: ./ruleset/Steam.yaml
-    interval: 86400
-  Epic:
-    type: http
-    behavior: classical
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Epic.yaml"
-    path: ./ruleset/Epic.yaml
-    interval: 86400
   ProxyGFWlist:
     type: http
     behavior: classical
@@ -303,8 +286,6 @@ rules:
   - RULE-SET,OneDrive,Microsoft
   - RULE-SET,Microsoft,Microsoft
   - RULE-SET,Apple,Apple
-  - RULE-SET,Steam,Game
-  - RULE-SET,Epic,Game
   - RULE-SET,ProxyGFWlist,Proxies
   - RULE-SET,ChinaIp,DIRECT
   - RULE-SET,ChinaDomain,DIRECT
