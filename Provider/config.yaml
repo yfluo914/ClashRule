@@ -87,10 +87,32 @@ dns:
     - speedtest.cros.wr.pvp.net
 
 proxy-providers:
-  MyProxy:
+  MyProxy1:
     type: http
     url: "clash subscription link"
-    path: ./MyProxy.yaml
+    path: ./MyProxy1.yaml
+    filter: filter
+    interval: 21600
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 300
+      lazy: true
+  MyProxy2:
+    type: http
+    url: "clash subscription link"
+    path: ./MyProxy2.yaml
+    filter: filter
+    interval: 21600
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 300
+      lazy: true
+  MyProxy3:
+    type: http
+    url: "clash subscription link"
+    path: ./MyProxy3.yaml
     filter: filter
     interval: 21600
     health-check:
@@ -106,7 +128,9 @@ proxy-groups:
     interval: 300
     tolerance: 50
     proxies:
-      - MyProxy
+      - MyProxy1
+      - MyProxy2
+      - MyProxy3
       - DIRECT
   - name: Microsoft
     type: select
@@ -123,13 +147,27 @@ proxy-groups:
     proxies:
       - DIRECT
       - Proxies
-  - name: MyProxy
+  - name: MyProxy1
     type: fallback
     url: http://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
     use:
-      - MyProxy
+      - MyProxy1
+  - name: MyProxy2
+    type: fallback
+    url: http://cp.cloudflare.com/generate_204
+    interval: 300
+    tolerance: 50
+    use:
+      - MyProxy2
+  - name: MyProxy3
+    type: fallback
+    url: http://cp.cloudflare.com/generate_204
+    interval: 300
+    tolerance: 50
+    use:
+      - MyProxy3
 
 rule-providers:
   LocalAreaNetwork:
@@ -156,6 +194,24 @@ rule-providers:
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanProgramAD.yaml"
     path: ./ruleset/BanProgramAD.yaml
     interval: 86400
+  BanEasyList:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanEasyList.yaml"
+    path: ./ruleset/BanEasyList.yaml
+    interval: 86400
+  BanEasyListChina:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanEasyListChina.yaml"
+    path: ./ruleset/BanEasyListChina.yaml
+    interval: 86400
+  BanEasyPrivacy:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanEasyPrivacy.yaml"
+    path: ./ruleset/BanEasyPrivacy.yaml
+    interval: 86400
   GoogleCN:
     type: http
     behavior: classical
@@ -167,30 +223,6 @@ rule-providers:
     behavior: classical
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/SteamCN.yaml"
     path: ./ruleset/SteamCN.yaml
-    interval: 86400
-  ProxyGFWlist:
-    type: http
-    behavior: classical
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyGFWlist.yaml"
-    path: ./ruleset/ProxyGFWlist.yaml
-    interval: 86400
-  ChinaDomain:
-    type: http
-    behavior: classical
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaDomain.yaml"
-    path: ./ruleset/ChinaDomain.yaml
-    interval: 86400
-  ChinaIp:
-    type: http
-    behavior: ipcidr
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaIp.yaml"
-    path: ./ruleset/ChinaIp.yaml
-    interval: 86400
-  Download:
-    type: http
-    behavior: classical
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Download.yaml"
-    path: ./ruleset/Download.yaml
     interval: 86400
   OneDrive:
     type: http
@@ -222,12 +254,45 @@ rule-providers:
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Epic.yaml"
     path: ./ruleset/Epic.yaml
     interval: 86400
+  ProxyGFWlist:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyGFWlist.yaml"
+    path: ./ruleset/ProxyGFWlist.yaml
+    interval: 86400
+  ChinaIp:
+    type: http
+    behavior: ipcidr
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaIp.yaml"
+    path: ./ruleset/ChinaIp.yaml
+    interval: 86400
+  ChinaDomain:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaDomain.yaml"
+    path: ./ruleset/ChinaDomain.yaml
+    interval: 86400
+  ChinaCompanyIp:
+    type: http
+    behavior: ipcidr
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaCompanyIp.yaml"
+    path: ./ruleset/ChinaCompanyIp.yaml
+    interval: 86400
+  Download:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Download.yaml"
+    path: ./ruleset/Download.yaml
+    interval: 86400
 
 rules:
   - RULE-SET,LocalAreaNetwork,DIRECT
   - RULE-SET,UnBan,DIRECT
   - RULE-SET,BanAD,REJECT
   - RULE-SET,BanProgramAD,REJECT
+  - RULE-SET,BanEasyList,REJECT
+  - RULE-SET,BanEasyListChina,REJECT
+  - RULE-SET,BanEasyPrivacy,REJECT
   - RULE-SET,GoogleCN,DIRECT
   - RULE-SET,SteamCN,DIRECT
   - RULE-SET,OneDrive,Microsoft
@@ -236,8 +301,9 @@ rules:
   - RULE-SET,Steam,Game
   - RULE-SET,Epic,Game
   - RULE-SET,ProxyGFWlist,Proxies
-  - RULE-SET,ChinaDomain,DIRECT
   - RULE-SET,ChinaIp,DIRECT
+  - RULE-SET,ChinaDomain,DIRECT
+  - RULE-SET,ChinaCompanyIp,DIRECT
   - RULE-SET,Download,DIRECT
   - GEOIP,LAN,DIRECT
   - GEOIP,CN,DIRECT
