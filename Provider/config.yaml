@@ -89,9 +89,9 @@ dns:
 proxy-providers:
   Proxy1:
     type: http
-    url: "clash subscription link"
+    url: "https://sub.yfluo.tk"
     path: ./Proxy1.yaml
-    filter: filter
+    filter: US
     interval: 21600
     health-check:
       enable: true
@@ -100,9 +100,9 @@ proxy-providers:
       lazy: true
   Proxy2:
     type: http
-    url: "clash subscription link"
+    url: "https://sub.yfluo.tk"
     path: ./Proxy2.yaml
-    filter: filter
+    filter: US
     interval: 21600
     health-check:
       enable: true
@@ -111,9 +111,9 @@ proxy-providers:
       lazy: true
   Proxy3:
     type: http
-    url: "clash subscription link"
+    url: "https://sub.yfluo.tk"
     path: ./Proxy3.yaml
-    filter: filter
+    filter: US
     interval: 21600
     health-check:
       enable: true
