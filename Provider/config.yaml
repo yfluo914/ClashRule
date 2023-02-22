@@ -274,6 +274,11 @@ rule-providers:
     interval: 86400
 
 rules:
+  - DOMAIN,nimo.sjtu.edu.cn,DIRECT
+  - DOMAIN,campus.sjtu.edu.cn,DIRECT
+  - DOMAIN,net.sjtu.edu.cn,DIRECT
+  - DOMAIN-SUFFIX,sjtu.edu.cn,DIRECT
+  - DOMAIN-KEYWORD,sjtu,DIRECT
   - RULE-SET,LocalAreaNetwork,DIRECT
   - RULE-SET,UnBan,DIRECT
   - RULE-SET,BanAD,BanAD
