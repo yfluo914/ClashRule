@@ -1,4 +1,7 @@
 # SJTU
+DOMAIN,nimo.sjtu.edu.cn
+DOMAIN,campus.sjtu.edu.cn
+DOMAIN,net.sjtu.edu.cn
 DOMAIN-SUFFIX,sjtu.edu.cn
 DOMAIN-KEYWORD,sjtu
 
@@ -9,13 +12,3 @@ DOMAIN-KEYWORD,maj-soul
 
 # MisakaF Emby
 DOMAIN-SUFFIX,cdn.misakaf.org
-
-# JD
-DOMAIN-SUFFIX,360buy.com
-DOMAIN-SUFFIX,360buyimg.com
-DOMAIN-SUFFIX,jcloudcs.com
-DOMAIN-SUFFIX,jd.com
-DOMAIN-SUFFIX,jd.hk
-DOMAIN-SUFFIX,jdcloud.com
-DOMAIN-SUFFIX,jdpay.com
-DOMAIN-SUFFIX,paipai.com
