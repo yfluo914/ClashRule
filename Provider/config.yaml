@@ -87,10 +87,10 @@ dns:
     - speedtest.cros.wr.pvp.net
 
 proxy-providers:
-  MyProxy1:
+  Proxy1:
     type: http
     url: "clash subscription link"
-    path: ./MyProxy1.yaml
+    path: ./Proxy1.yaml
     filter: filter
     interval: 21600
     health-check:
@@ -98,10 +98,10 @@ proxy-providers:
       url: http://cp.cloudflare.com/generate_204
       interval: 300
       lazy: true
-  MyProxy2:
+  Proxy2:
     type: http
     url: "clash subscription link"
-    path: ./MyProxy2.yaml
+    path: ./Proxy2.yaml
     filter: filter
     interval: 21600
     health-check:
@@ -109,10 +109,10 @@ proxy-providers:
       url: http://cp.cloudflare.com/generate_204
       interval: 300
       lazy: true
-  MyProxy3:
+  Proxy3:
     type: http
     url: "clash subscription link"
-    path: ./MyProxy3.yaml
+    path: ./Proxy3.yaml
     filter: filter
     interval: 21600
     health-check:
@@ -128,9 +128,9 @@ proxy-groups:
     interval: 300
     tolerance: 50
     proxies:
-      - MyProxy1
-      - MyProxy2
-      - MyProxy3
+      - Proxy1
+      - Proxy2
+      - Proxy3
       - DIRECT
   - name: Microsoft
     type: select
@@ -147,27 +147,32 @@ proxy-groups:
     proxies:
       - DIRECT
       - Proxies
-  - name: MyProxy1
+  - name: BanAD
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: Proxy1
     type: fallback
     url: http://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
     use:
-      - MyProxy1
-  - name: MyProxy2
+      - Proxy1
+  - name: Proxy2
     type: fallback
     url: http://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
     use:
-      - MyProxy2
-  - name: MyProxy3
+      - Proxy2
+  - name: Proxy3
     type: fallback
     url: http://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
     use:
-      - MyProxy3
+      - Proxy3
 
 rule-providers:
   LocalAreaNetwork:
@@ -288,11 +293,11 @@ rule-providers:
 rules:
   - RULE-SET,LocalAreaNetwork,DIRECT
   - RULE-SET,UnBan,DIRECT
-  - RULE-SET,BanAD,REJECT
-  - RULE-SET,BanProgramAD,REJECT
-  - RULE-SET,BanEasyList,REJECT
-  - RULE-SET,BanEasyListChina,REJECT
-  - RULE-SET,BanEasyPrivacy,REJECT
+  - RULE-SET,BanAD,BanAD
+  - RULE-SET,BanProgramAD,BanAD
+  - RULE-SET,BanEasyList,BanAD
+  - RULE-SET,BanEasyListChina,BanAD
+  - RULE-SET,BanEasyPrivacy,BanAD
   - RULE-SET,GoogleCN,DIRECT
   - RULE-SET,SteamCN,DIRECT
   - RULE-SET,OneDrive,Microsoft
