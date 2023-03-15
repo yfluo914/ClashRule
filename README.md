@@ -1,3 +1,3 @@
 # Clash Rule
 
-Rule and config file for clash core, use list and initialization file.
+Rules and config files for clash core, use list and initialization file.
