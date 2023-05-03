@@ -1,3 +1,3 @@
 # Clash Rule
 
-Rules and config files for clash core.
+Rules and configuration files for clash core.
