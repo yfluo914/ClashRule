@@ -31,20 +31,20 @@ dns:
 proxies:
 
 proxy-groups:
-  - { name: "$app_name", type: select, proxies: ["🇭🇰 Hong Kong", "🇸🇬 Singapore", "🇯🇵 Japan", "🇺🇲 United States"] }
+  - { name: "$app_name", type: select, proxies: ["🇭🇰 Hong Kong", "🇸🇬 Singapore", "🇯🇵 Japan", "🇺🇸 United States"] }
   - { name: "📲 Telegram", type: select, proxies: ["🇭🇰 Hong Kong", "🇯🇵 Japan"] }
   - { name: "📹 Youtube", type: select, proxies: ["🇭🇰 Hong Kong", "🇸🇬 Singapore"] }
   - { name: "🎥 NF&D+", type: select, proxies: ["🇭🇰 Hong Kong", "🇸🇬 Singapore"] }
   - { name: "📺 Bilibili", type: select, proxies: [DIRECT, "🇭🇰 Hong Kong"] }
-  - { name: "🌎 Google", type: select, proxies: ["🇺🇲 United States"] }
-  - { name: "🌎 Microsoft", type: select, proxies: [DIRECT, "🇺🇲 United States"] }
-  - { name: "🍎 Apple", type: select, proxies: [DIRECT, "🇺🇲 United States"] }
-  - { name: "🎮 Game", type: select, proxies: [DIRECT, "🇺🇲 United States"] }
-  - { name: "🤖 ChatGPT", type: select, proxies: ["🇺🇲 United States"] }
+  - { name: "🌎 Google", type: select, proxies: ["🇺🇸 United States"] }
+  - { name: "🌎 Microsoft", type: select, proxies: [DIRECT, "🇺🇸 United States"] }
+  - { name: "🍎 Apple", type: select, proxies: [DIRECT, "🇺🇸 United States"] }
+  - { name: "🎮 Game", type: select, proxies: [DIRECT, "🇺🇸 United States"] }
+  - { name: "🤖 ChatGPT", type: select, proxies: ["🇺🇸 United States"] }
   - { name: "🇭🇰 Hong Kong", type: select, proxies: [/HK/] }
   - { name: "🇸🇬 Singapore", type: select, proxies: [/SG/] }
   - { name: "🇯🇵 Japan", type: select, proxies: [/JP/] }
-  - { name: "🇺🇲 United States", type: select, proxies: [/US/] }
+  - { name: "🇺🇸 United States", type: select, proxies: [/US/] }
 
 rules:
  - DOMAIN-SUFFIX,yfluo.tk,$app_name
