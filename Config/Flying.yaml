@@ -21,6 +21,7 @@ dns:
     - https://doh.pub/dns-query
   fallback:
     - https://dns.cloudflare.com/dns-query
+    - https://public.dns.iij.jp/dns-query
     - https://dns.google/dns-query
   fallback-filter:
     geoip: true
