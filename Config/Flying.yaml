@@ -37,7 +37,7 @@ proxy-groups:
   - { name: "📹 Youtube", type: select, proxies: ["🇭🇰 Hong Kong", "🇸🇬 Singapore"] }
   - { name: "🎥 NF&D+", type: select, proxies: ["🇸🇬 Singapore", "🇭🇰 Hong Kong"] }
   - { name: "📺 Bilibili", type: select, proxies: [DIRECT, "🇭🇰 Hong Kong"] }
-  - { name: "🌎 Google", type: select, proxies: ["🇭🇰 Hong Kong", "🇺🇸 United States"] }
+  - { name: "🌎 Google", type: select, proxies: ["🇺🇸 United States"] }
   - { name: "🌎 Microsoft", type: select, proxies: [DIRECT, "🇺🇸 United States"] }
   - { name: "🍎 Apple", type: select, proxies: [DIRECT, "🇺🇸 United States"] }
   - { name: "🎮 Game", type: select, proxies: [DIRECT, "🇺🇸 United States"] }
