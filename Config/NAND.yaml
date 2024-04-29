@@ -21,7 +21,6 @@ dns:
     - https://doh.pub/dns-query
   fallback:
     - https://dns.cloudflare.com/dns-query
-    - https://public.dns.iij.jp/dns-query
     - https://dns.google/dns-query
   fallback-filter:
     geoip: true
@@ -42,7 +41,7 @@ proxy-groups:
   - { name: "🍎 Apple", type: select, proxies: [DIRECT, "🇺🇸 United States"] }
   - { name: "🎮 Game", type: select, proxies: [DIRECT, "🇺🇸 United States"] }
   - { name: "🤖 ChatGPT", type: select, proxies: ["🇺🇸 United States"] }
-  - { name: "🇭🇰 Hong Kong", type: select, proxies: [/HK/, /TW/] }
+  - { name: "🇭🇰 Hong Kong", type: select, proxies: [/HK/] }
   - { name: "🇯🇵 Japan", type: select, proxies: [/JP/] }
   - { name: "🇺🇸 United States", type: select, proxies: [/US/] }
 
