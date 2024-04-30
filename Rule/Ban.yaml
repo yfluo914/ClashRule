@@ -1,0 +1,6 @@
+payload:
+  - DOMAIN-SUFFIX,miav-cse.avlyun.com
+  - DOMAIN-SUFFIX,a0.app.xiaomi.com
+  - DOMAIN-SUFFIX,miui-fxcse.avlyun.com
+  - DOMAIN-SUFFIX,api.installer.xiaomi.com
+  - IP-CIDR,157.148.47.204/32,no-resolve

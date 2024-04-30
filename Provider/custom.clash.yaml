@@ -1,0 +1,95 @@
+mixed-port: 7890
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+external-controller: '127.0.0.1:9090'
+dns:
+    enable: true
+    listen: '0.0.0.0:53'
+    ipv6: false
+    default-nameserver: [223.5.5.5, 119.29.29.29]
+    enhanced-mode: fake-ip
+    fake-ip-range: 198.18.0.1/16
+    use-hosts: true
+    nameserver: ['https://223.5.5.5/dns-query', 'https://1.12.12.12/dns-query']
+    fallback: ['https://1.1.1.1/dns-query', 'https://8.8.8.8/dns-query']
+    fallback-filter: { geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32] }
+
+proxy-providers:
+    MyNode: { type: http, url: 'https://sublink.nand.work/sub/v2ray/', path: ./profiles/proxy-providers/mynode.yaml, interval: 21600, health-check: { enable: true, url: 'http://cp.cloudflare.com', interval: 300, timeout: 5000, lazy: true, expected-status: 204 } }
+
+proxies:
+
+proxy-groups:
+  - { name: "🚀 $app_name", type: select, proxies: [], use: ["MyNode"] }
+  - { name: "📲 Telegram", type: select, proxies: ["🚀 $app_name"] }
+  - { name: "🤖 ChatGPT", type: select, proxies: ["🚀 $app_name"] }
+  - { name: "📹 Media", type: select, proxies: ["🚀 $app_name"] }
+  - { name: "🌎 Google", type: select, proxies: ["🚀 $app_name"] }
+  - { name: "🌎 Microsoft", type: select, proxies: [DIRECT] }
+  - { name: "🍎 Apple", type: select, proxies: [DIRECT] }
+  - { name: "🎮 Game", type: select, proxies: [DIRECT] }
+
+rule-providers:
+    Direct: { type: http, url: 'https://raw.githubusercontent.com/yfluo914/ClashRule/main/Rule/Direct.yaml', path: ./profiles/rule-providers/Direct.yaml, interval: 86400, behavior: classical, format: yaml }
+    Ban: { type: http, url: 'https://raw.githubusercontent.com/yfluo914/ClashRule/main/Rule/Ban.yaml', path: ./profiles/rule-providers/Ban.yaml, interval: 86400, behavior: classical, format: yaml }
+    LocalAreaNetwork: { type: http, url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml', path: ./profiles/rule-providers/LocalAreaNetwork.yaml, interval: 86400, behavior: classical, format: yaml }
+    UnBan: { type: http, url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/UnBan.yaml', path: ./profiles/rule-providers/UnBan.yaml, interval: 86400, behavior: classical, format: yaml }
+    BanAD: { type: http, url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanAD.yaml', path: ./profiles/rule-providers/BanAD.yaml, interval: 86400, behavior: classical, format: yaml }
+    BanProgramAD: { type: http, url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanProgramAD.yaml', path: ./profiles/rule-providers/BanProgramAD.yaml, interval: 86400, behavior: classical, format: yaml }
+    BanEasyList: { type: http, url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanEasyList.yaml', path: ./profiles/rule-providers/BanEasyList.yaml, interval: 86400, behavior: classical, format: yaml }
+    BanEasyListChina: { type: http, url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanEasyListChina.yaml', path: ./profiles/rule-providers/BanEasyListChina.yaml, interval: 86400, behavior: classical, format: yaml }
+    BanEasyPrivacy: { type: http, url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanEasyPrivacy.yaml', path: ./profiles/rule-providers/BanEasyPrivacy.yaml, interval: 86400, behavior: classical, format: yaml }
+    GoogleCN: { type: http, url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/GoogleCN.yaml', path: ./profiles/rule-providers/GoogleCN.yaml, interval: 86400, behavior: classical, format: yaml }
+    SteamCN: { type: http, url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/SteamCN.yaml', path: ./profiles/rule-providers/SteamCN.yaml, interval: 86400, behavior: classical, format: yaml }
+    Telegram: { type: http, url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Telegram.yaml', path: ./profiles/rule-providers/Telegram.yaml, interval: 86400, behavior: classical, format: yaml }
+    YouTube: { type: http, url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/YouTube.yaml', path: ./profiles/rule-providers/YouTube.yaml, interval: 86400, behavior: classical, format: yaml }
+    ProxyMedia: { type: http, url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyMedia.yaml', path: ./profiles/rule-providers/ProxyMedia.yaml, interval: 86400, behavior: classical, format: yaml }
+    Google: { type: http, url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Google.yaml', path: ./profiles/rule-providers/Google.yaml, interval: 86400, behavior: classical, format: yaml }
+    OneDrive: { type: http, url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/OneDrive.yaml', path: ./profiles/rule-providers/OneDrive.yaml, interval: 86400, behavior: classical, format: yaml }
+    Microsoft: { type: http, url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Microsoft.yaml', path: ./profiles/rule-providers/Microsoft.yaml, interval: 86400, behavior: classical, format: yaml }
+    Bing: { type: http, url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Bing.yaml', path: ./profiles/rule-providers/Bing.yaml, interval: 86400, behavior: classical, format: yaml }
+    Apple: { type: http, url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Apple.yaml', path: ./profiles/rule-providers/Apple.yaml, interval: 86400, behavior: classical, format: yaml }
+    Steam: { type: http, url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Steam.yaml', path: ./profiles/rule-providers/Steam.yaml, interval: 86400, behavior: classical, format: yaml }
+    Epic: { type: http, url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Epic.yaml', path: ./profiles/rule-providers/Epic.yaml, interval: 86400, behavior: classical, format: yaml }
+    OpenAi: { type: http, url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/OpenAi.yaml', path: ./profiles/rule-providers/OpenAi.yaml, interval: 86400, behavior: classical, format: yaml }
+    Claude: { type: http, url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Claude.yaml', path: ./profiles/rule-providers/Claude.yaml, interval: 86400, behavior: classical, format: yaml }
+    ProxyGFWlist: { type: http, url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyGFWlist.yaml', path: ./profiles/rule-providers/ProxyGFWlist.yaml, interval: 86400, behavior: classical, format: yaml }
+    ChinaIp: { type: http, url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaIp.yaml', path: ./profiles/rule-providers/ChinaIp.yaml, interval: 86400, behavior: classical, format: yaml }
+    ChinaDomain: { type: http, url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaDomain.yaml', path: ./profiles/rule-providers/ChinaDomain.yaml, interval: 86400, behavior: classical, format: yaml }
+    ChinaCompanyIp: { type: http, url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaCompanyIp.yaml', path: ./profiles/rule-providers/ChinaCompanyIp.yaml, interval: 86400, behavior: classical, format: yaml }
+    Download: { type: http, url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Download.yaml', path: ./profiles/rule-providers/Download.yaml, interval: 86400, behavior: classical, format: yaml }
+
+rules:
+  - RULE-SET,Direct,DIRECT
+  - RULE-SET,LocalAreaNetwork,DIRECT
+  - RULE-SET,UnBan,DIRECT
+  - RULE-SET,BanAD,REJECT
+  - RULE-SET,BanProgramAD,REJECT
+  - RULE-SET,BanEasyList,REJECT
+  - RULE-SET,BanEasyListChina,REJECT
+  - RULE-SET,BanEasyPrivacy,REJECT
+  - RULE-SET,Ban,REJECT
+  - RULE-SET,GoogleCN,DIRECT
+  - RULE-SET,SteamCN,DIRECT
+  - RULE-SET,Telegram,📲 Telegram
+  - RULE-SET,OpenAi,🤖 ChatGPT
+  - RULE-SET,Claude,🤖 ChatGPT
+  - RULE-SET,YouTube,📹 Media
+  - RULE-SET,Google,🌎 Google
+  - RULE-SET,OneDrive,🌎 Microsoft
+  - RULE-SET,Microsoft,🌎 Microsoft
+  - RULE-SET,Bing,🌎 Microsoft
+  - RULE-SET,Apple,🍎 Apple
+  - RULE-SET,Steam,🎮 Game
+  - RULE-SET,Epic,🎮 Game
+  - RULE-SET,ProxyMedia,📹 Media
+  - RULE-SET,ProxyGFWlist,🚀 $app_name
+  - RULE-SET,ChinaIp,DIRECT
+  - RULE-SET,ChinaDomain,DIRECT
+  - RULE-SET,ChinaCompanyIp,DIRECT
+  - RULE-SET,Download,DIRECT
+  - GEOIP,LAN,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,🚀 $app_name
