@@ -17,12 +17,12 @@ dns:
     fallback-filter: { geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32] }
 
 proxy-providers:
-    MyNode: { type: http, url: 'https://sublink.nand.work/sub/v2ray/', path: ./profiles/proxy-providers/mynode.yaml, interval: 21600, health-check: { enable: true, url: 'http://cp.cloudflare.com', interval: 300, timeout: 5000, lazy: true, expected-status: 204 } }
+    NAND-Beta: { type: http, url: 'https://sublink.nand.work/sub/v2ray/', path: ./profiles/proxy-providers/nand-beta.yaml, interval: 21600, health-check: { enable: true, url: 'http://cp.cloudflare.com', interval: 300, timeout: 5000, lazy: true, expected-status: 204 } }
 
 proxies:
 
 proxy-groups:
-  - { name: "🚀 $app_name", type: select, proxies: [], use: ["MyNode"] }
+  - { name: "🚀 $app_name", type: select, proxies: [], use: ["NAND-Beta"] }
   - { name: "📲 Telegram", type: select, proxies: ["🚀 $app_name"] }
   - { name: "🤖 ChatGPT", type: select, proxies: ["🚀 $app_name"] }
   - { name: "📹 Media", type: select, proxies: ["🚀 $app_name"] }
