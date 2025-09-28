@@ -5,6 +5,15 @@ payload:
   - DOMAIN-SUFFIX,sjtu.edu.cn
   - DOMAIN-KEYWORD,sjtu
 
+# Aliyun
+  - DOMAIN-SUFFIX,alibaba-inc.com
+  - DOMAIN-SUFFIX,aliyun-inc.com
+  - DOMAIN-SUFFIX,aliyun.com
+  - DOMAIN-SUFFIX,aliyuncs.com
+  - DOMAIN-SUFFIX,dingtalk.com
+  - DOMAIN-KEYWORD,alibaba
+  - DOMAIN-KEYWORD,aliyun
+
 # Maj Soul
   - DOMAIN-SUFFIX,maj-soul.net
   - DOMAIN-SUFFIX,maj-soul.com
