@@ -1,4 +1,8 @@
 payload:
+# SSH
+  - DST-PORT,22
+  - PROTOCOL,ssh
+
 # SJTU
   - DOMAIN,nimo.sjtu.edu.cn
   - DOMAIN,net.sjtu.edu.cn
