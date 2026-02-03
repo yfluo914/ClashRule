@@ -17,6 +17,7 @@ payload:
   - DOMAIN-SUFFIX,dingtalkapps.com
   - DOMAIN-KEYWORD,alibaba
   - DOMAIN-KEYWORD,aliyun
+  - DOMAIN-KEYWORD,dingtalk
 
 # MuleRun
   - DOMAIN-SUFFIX,mulerun.com
