@@ -1,8 +1,4 @@
 payload:
-# SSH
-  - DST-PORT,22
-  - PROTOCOL,ssh
-
 # SJTU
   - DOMAIN,nimo.sjtu.edu.cn
   - DOMAIN,net.sjtu.edu.cn
@@ -18,13 +14,7 @@ payload:
   - DOMAIN-KEYWORD,alibaba
   - DOMAIN-KEYWORD,aliyun
 
-# Maj Soul
-  - DOMAIN-SUFFIX,maj-soul.net
-  - DOMAIN-SUFFIX,maj-soul.com
-  - DOMAIN-KEYWORD,maj-soul
-
 # MuleRun
   - DOMAIN-SUFFIX,mulerun.com
   - DOMAIN-SUFFIX,mule.run
   - DOMAIN-KEYWORD,mule
-  - DOMAIN-SUFFIX,sailing.im
