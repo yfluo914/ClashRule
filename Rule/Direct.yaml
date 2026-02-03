@@ -11,6 +11,7 @@ payload:
   - DOMAIN-SUFFIX,aliyun.com
   - DOMAIN-SUFFIX,aliyuncs.com
   - DOMAIN-SUFFIX,dingtalk.com
+  - DOMAIN-SUFFIX,dingtalkapps.com
   - DOMAIN-KEYWORD,alibaba
   - DOMAIN-KEYWORD,aliyun
 
