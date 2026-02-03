@@ -10,6 +10,9 @@ payload:
   - DOMAIN-SUFFIX,aliyun-inc.com
   - DOMAIN-SUFFIX,aliyun.com
   - DOMAIN-SUFFIX,aliyuncs.com
+  - DOMAIN-SUFFIX,alicdn.com
+  - DOMAIN-SUFFIX,alibaba.com
+  - DOMAIN-SUFFIX,taobao.com
   - DOMAIN-SUFFIX,dingtalk.com
   - DOMAIN-SUFFIX,dingtalkapps.com
   - DOMAIN-KEYWORD,alibaba
