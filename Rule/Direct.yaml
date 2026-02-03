@@ -13,6 +13,8 @@ payload:
   - DOMAIN-SUFFIX,alicdn.com
   - DOMAIN-SUFFIX,alibaba.com
   - DOMAIN-SUFFIX,taobao.com
+  - DOMAIN-SUFFIX,aliway.com
+  - DOMAIN-SUFFIX,atatech.org
   - DOMAIN-SUFFIX,dingtalk.com
   - DOMAIN-SUFFIX,dingtalkapps.com
   - DOMAIN-KEYWORD,alibaba
@@ -23,3 +25,4 @@ payload:
   - DOMAIN-SUFFIX,mulerun.com
   - DOMAIN-SUFFIX,mule.run
   - DOMAIN-KEYWORD,mule
+  - IP-CIDR,47.117.138.165/32
